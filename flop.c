@@ -430,9 +430,9 @@ void show_fat()
     free(fat_buffer);
 }
 
-void output_redirection(int new_fd, char *redir_symbol, char *comd, void (*func)())
+void output_redirection(int new_fd, char redir_symbol[1], char* comd[], void (*func)())
 {
-    if ((new_fd = open((const char*)comd[2], O_WRONLY | O_CREAT | O_TRUNC, 0644)) < 0) {
+    if ((new_fd = open(comd[2], O_WRONLY | O_CREAT | O_TRUNC, 0644)) < 0) {
         printf("error creating redirect file\n");
         exit(1);
     }
@@ -450,9 +450,9 @@ void output_redirection(int new_fd, char *redir_symbol, char *comd, void (*func)
     close(new_fd);
 }
 
-void output_redirection2(int new_fd, char *redir_symbol, char* comd, void (*func)(char*))
+void output_redirection2(int new_fd, char redir_symbol[1], char* comd[], void (*func)(char*))
 {
-    if ((new_fd = open((const char*)comd[2], O_WRONLY | O_CREAT | O_TRUNC, 0644)) < 0) {
+    if ((new_fd = open(comd[2], O_WRONLY | O_CREAT | O_TRUNC, 0644)) < 0) {
         printf("error creating redirect file\n");
         exit(1);
     }
@@ -470,9 +470,9 @@ void output_redirection2(int new_fd, char *redir_symbol, char* comd, void (*func
     close(new_fd);
 }
 
-void output_redirection3(int new_fd, char *redir_symbol, char* comd, void (*func)(int))
+void output_redirection3(int new_fd, char redir_symbol[1], char* comd[], void (*func)(int))
 {
-    if ((new_fd = open((const char*)comd[2], O_WRONLY | O_CREAT | O_TRUNC, 0644)) < 0) {
+    if ((new_fd = open(comd[2], O_WRONLY | O_CREAT | O_TRUNC, 0644)) < 0) {
         printf("error creating redirect file\n");
         exit(1);
     }
